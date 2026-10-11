@@ -1,0 +1,5 @@
+.vercel
+.env*
+gen_icons.py
+gen_unlock.html
+.vercelignore

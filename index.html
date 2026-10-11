@@ -1,0 +1,1485 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+<!-- ============ SEO 基础 ============ -->
+<title>图片处理工具 - 在线压缩/缩放/格式转换/加水印（本地处理，不上传服务器）</title>
+<meta name="description" content="免费在线图片处理工具：压缩图片体积、缩放尺寸、转换格式（JPEG/PNG/WebP）、添加文字水印。所有处理在浏览器本地完成，图片不上传服务器，保护隐私。支持批量处理，手机端离线可用。">
+<meta name="keywords" content="图片压缩,图片缩放,图片格式转换,图片加水印,在线图片处理,本地图片处理,图片不上传,隐私图片处理,批量压缩图片,WebP转换,JPEG压缩">
+<meta name="author" content="图片处理工具">
+<meta name="robots" content="index,follow">
+
+<!-- ============ Open Graph ============ -->
+<meta property="og:type" content="website">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:title" content="图片处理工具 - 本地处理，图片不上传服务器">
+<meta property="og:description" content="免费在线压缩、缩放、格式转换、加水印。浏览器本地处理，保护隐私，手机离线可用。">
+<meta property="og:site_name" content="图片处理工具">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="图片处理工具 - 本地处理，图片不上传服务器">
+<meta name="twitter:description" content="免费在线压缩、缩放、格式转换、加水印。浏览器本地处理，保护隐私。">
+
+<!-- ============ PWA ============ -->
+<link rel="manifest" href="manifest.json">
+<meta name="application-name" content="图片处理工具">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="图片处理">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#f6f7f9">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0f1115">
+<meta name="theme-color" content="#f6f7f9">
+
+<!-- 图标：内联 SVG data URI -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2316a34a'/%3E%3Crect x='12' y='14' width='40' height='32' rx='4' fill='none' stroke='white' stroke-width='3'/%3E%3Ccircle cx='24' cy='26' r='4' fill='white'/%3E%3Cpath d='M14 42 L26 30 L34 38 L42 28 L50 42' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="apple-touch-icon" href="icon.svg">
+
+<!-- ============ 结构化数据 ============ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "图片处理工具",
+  "applicationCategory": "MultimediaApplication",
+  "operatingSystem": "Any",
+  "inLanguage": "zh-CN",
+  "description": "免费在线图片处理工具，支持压缩、缩放、格式转换、加水印。所有处理在浏览器本地完成，图片不上传服务器，保护隐私。",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CNY" },
+  "featureList": "图片压缩,图片缩放,格式转换JPEG/PNG/WebP,文字水印,批量处理,本地处理不上传,离线可用,暗色模式"
+}
+</script>
+
+<!-- FAQ 结构化数据：百度/谷歌可摘要在搜索结果中直接展示 -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "图片会被上传到服务器吗？",
+      "acceptedAnswer": { "@type": "Answer", "text": "不会。本工具所有处理全部在你的浏览器内完成，图片从选择到输出始终留在你的设备上，关闭页面即销毁。适合处理身份证、合同、私人照片等敏感图片。" }
+    },
+    {
+      "@type": "Question",
+      "name": "图片压缩后画质损失大吗？",
+      "acceptedAnswer": { "@type": "Answer", "text": "压缩质量可自行调节。推荐 70%-85% 区间：体积通常缩小 50%-80%，肉眼几乎察觉不到画质变化。" }
+    },
+    {
+      "@type": "Question",
+      "name": "支持批量处理多张图片吗？",
+      "acceptedAnswer": { "@type": "Answer", "text": "支持。免费版每个会话可处理 10 张，输入解锁码后单次最多 50 张、张数不限。" }
+    },
+    {
+      "@type": "Question",
+      "name": "手机上能用吗？需要安装 App 吗？",
+      "acceptedAnswer": { "@type": "Answer", "text": "手机浏览器打开即用，无需安装任何 App。也可以通过浏览器菜单添加到主屏幕，离线使用。" }
+    },
+    {
+      "@type": "Question",
+      "name": "WebP 和 JPEG 该选哪个格式？",
+      "acceptedAnswer": { "@type": "Answer", "text": "追求最小体积选 WebP（比 JPEG 小 25%-35%，且支持透明）；需要兼容老设备选 JPEG；需要无损透明背景选 PNG。" }
+    }
+  ]
+}
+</script>
+
+<style>
+/* ============================================================
+   主题变量
+   ============================================================ */
+:root{
+  --bg:#f6f7f9; --bg-card:#ffffff; --bg-soft:#eef0f4;
+  --text:#1c1e21; --text-2:#5b6169; --text-3:#8a919b;
+  --border:#e3e6ea; --accent:#16a34a; --accent-2:#15803d; --accent-soft:rgba(22,163,74,.1);
+  --shadow:0 1px 3px rgba(20,24,30,.06),0 4px 16px rgba(20,24,30,.05);
+  --warn:#b45309; --warn-bg:#fef3c7; --warn-border:#f59e0b;
+  --danger:#dc2626; --danger-bg:#fee2e2;
+  --radius:14px; --tab-h:42px;
+}
+html[data-theme="dark"]{
+  --bg:#0f1115; --bg-card:#181b21; --bg-soft:#23272f;
+  --text:#e8eaed; --text-2:#a7adb6; --text-3:#6f7680;
+  --border:#2c313a; --accent:#22c55e; --accent-2:#16a34a; --accent-soft:rgba(34,197,94,.14);
+  --shadow:0 1px 3px rgba(0,0,0,.35),0 4px 16px rgba(0,0,0,.3);
+  --warn:#fbbf24; --warn-bg:rgba(251,191,36,.12); --warn-border:#f59e0b;
+  --danger:#ef4444; --danger-bg:rgba(239,68,68,.12);
+}
+@media (prefers-color-scheme: dark){
+  html:not([data-theme="light"]){
+    --bg:#0f1115; --bg-card:#181b21; --bg-soft:#23272f;
+    --text:#e8eaed; --text-2:#a7adb6; --text-3:#6f7680;
+    --border:#2c313a; --accent:#22c55e; --accent-2:#16a34a; --accent-soft:rgba(34,197,94,.14);
+    --shadow:0 1px 3px rgba(0,0,0,.35),0 4px 16px rgba(0,0,0,.3);
+    --warn:#fbbf24; --warn-bg:rgba(251,191,36,.12); --warn-border:#f59e0b;
+    --danger:#ef4444; --danger-bg:rgba(239,68,68,.12);
+  }
+}
+
+/* ============ 重置 ============ */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans CJK SC",sans-serif;
+  background:var(--bg); color:var(--text);
+  line-height:1.6; min-height:100vh;
+  transition:background .25s,color .25s;
+  padding-bottom:env(safe-area-inset-bottom);
+}
+button{font:inherit;cursor:pointer;border:none;background:none;color:inherit}
+input,select{font:inherit;color:inherit}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* ============ 顶栏 ============ */
+.site-header{
+  position:sticky;top:0;z-index:50;
+  background:color-mix(in srgb,var(--bg) 82%,transparent);
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--border);
+}
+.header-inner{
+  max-width:1100px;margin:0 auto;padding:12px 16px;
+  display:flex;align-items:center;gap:12px;
+}
+.brand{display:flex;align-items:center;gap:9px;flex-shrink:0}
+.brand svg{width:32px;height:32px;border-radius:8px;display:block}
+.brand-info{display:flex;flex-direction:column;line-height:1.2}
+.brand-name{font-size:17px;font-weight:700;letter-spacing:.3px}
+.brand-sub{font-size:11px;color:var(--text-3)}
+#themeToggle{
+  margin-left:auto;width:38px;height:38px;border-radius:10px;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+  border:1px solid var(--border);background:var(--bg-card);
+  transition:background .2s;
+}
+#themeToggle:hover{background:var(--bg-soft)}
+#themeToggle svg{width:19px;height:19px;fill:none;stroke:var(--text-2);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.icon-sun{display:none}
+html[data-theme="dark"] .icon-sun{display:block}
+html[data-theme="dark"] .icon-moon{display:none}
+@media (prefers-color-scheme: dark){
+  html:not([data-theme="light"]) .icon-sun{display:block}
+  html:not([data-theme="light"]) .icon-moon{display:none}
+}
+
+/* ============ 主容器 ============ */
+.main{max-width:1100px;margin:0 auto;padding:16px 16px 60px}
+
+/* ============ SEO H1 ============ */
+.page-h1{
+  font-size:17px;font-weight:700;line-height:1.45;
+  margin-bottom:12px;color:var(--text);
+}
+/* ============ FAQ ============ */
+.faq-item{border-bottom:1px solid var(--border);padding:12px 0}
+.faq-item:last-child{border-bottom:none}
+.faq-item h3{font-size:14px;font-weight:600;margin-bottom:6px}
+.faq-item p{font-size:13px;color:var(--text-2);line-height:1.7}
+
+/* ============ 隐私卖点横幅 ============ */
+.privacy-banner{
+  background:var(--accent-soft);
+  border:1px solid color-mix(in srgb,var(--accent) 30%,transparent);
+  border-radius:12px;
+  padding:10px 14px;
+  display:flex;align-items:center;gap:10px;
+  margin-bottom:16px;font-size:13px;color:var(--accent-2);
+  line-height:1.4;
+}
+html[data-theme="dark"] .privacy-banner{color:var(--accent)}
+@media (prefers-color-scheme: dark){
+  html:not([data-theme="light"]) .privacy-banner{color:var(--accent)}
+}
+.privacy-banner svg{width:18px;height:18px;flex-shrink:0;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+/* ============ 上传区 ============ */
+.dropzone{
+  border:2px dashed var(--border);
+  border-radius:var(--radius);
+  padding:32px 20px;text-align:center;
+  background:var(--bg-card);
+  transition:all .2s;cursor:pointer;
+  position:relative;
+}
+.dropzone:hover,.dropzone.dragover{
+  border-color:var(--accent);background:var(--accent-soft);
+}
+.dropzone svg{width:48px;height:48px;color:var(--text-3);margin:0 auto 10px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.dropzone.dragover svg{color:var(--accent)}
+.dropzone h3{font-size:16px;font-weight:600;margin-bottom:6px}
+.dropzone p{font-size:13px;color:var(--text-3)}
+.dropzone .formats{margin-top:8px;font-size:11.5px;color:var(--text-3)}
+#fileInput{position:absolute;inset:0;opacity:0;cursor:pointer}
+
+/* ============ 功能区 ============ */
+.section{
+  background:var(--bg-card);border:1px solid var(--border);
+  border-radius:var(--radius);box-shadow:var(--shadow);
+  margin-top:16px;overflow:hidden;
+}
+.section-head{
+  padding:14px 16px;border-bottom:1px solid var(--border);
+  display:flex;align-items:center;gap:10px;
+}
+.section-head h2{font-size:15px;font-weight:600;flex:1}
+.section-head .badge-count{
+  font-size:12px;color:var(--text-3);
+  background:var(--bg-soft);padding:2px 8px;border-radius:999px;
+}
+.section-body{padding:14px 16px}
+
+/* ============ 功能开关 ============ */
+.feature-list{display:flex;flex-direction:column;gap:10px}
+.feature-item{
+  display:flex;align-items:center;gap:10px;
+  padding:10px 12px;border:1px solid var(--border);
+  border-radius:10px;cursor:pointer;
+  transition:all .18s;background:var(--bg);
+}
+.feature-item:hover{border-color:var(--accent)}
+.feature-item.active{border-color:var(--accent);background:var(--accent-soft)}
+.feature-item input{width:18px;height:18px;flex-shrink:0;accent-color:var(--accent)}
+.feature-item .f-name{font-size:14px;font-weight:500;flex:1}
+.feature-item .f-desc{font-size:11.5px;color:var(--text-3);margin-top:2px}
+
+/* ============ 参数面板 ============ */
+.params{margin-top:14px;display:none;flex-direction:column;gap:14px}
+.params.show{display:flex}
+.param-row{display:flex;flex-direction:column;gap:6px}
+.param-row.inline{flex-direction:row;align-items:center;justify-content:space-between;gap:12px}
+.param-row.inline .param-body{flex:1}
+.param-label{font-size:13px;font-weight:500;color:var(--text-2)}
+.param-value{font-size:12.5px;color:var(--accent-2);font-weight:600}
+html[data-theme="dark"] .param-value{color:var(--accent)}
+@media (prefers-color-scheme: dark){
+  html:not([data-theme="light"]) .param-value{color:var(--accent)}
+}
+.param-hint{font-size:11.5px;color:var(--text-3)}
+
+input[type="range"]{
+  -webkit-appearance:none;appearance:none;
+  width:100%;height:6px;border-radius:3px;
+  background:var(--bg-soft);outline:none;
+}
+input[type="range"]::-webkit-slider-thumb{
+  -webkit-appearance:none;appearance:none;
+  width:20px;height:20px;border-radius:50%;
+  background:var(--accent);cursor:pointer;
+  border:3px solid var(--bg-card);
+  box-shadow:0 1px 4px rgba(0,0,0,.2);
+}
+input[type="range"]::-moz-range-thumb{
+  width:20px;height:20px;border-radius:50%;
+  background:var(--accent);cursor:pointer;border:3px solid var(--bg-card);
+}
+input[type="number"],input[type="text"],select{
+  width:100%;height:38px;padding:0 10px;
+  border:1.5px solid var(--border);border-radius:8px;
+  background:var(--bg);font-size:14px;outline:none;
+  transition:border-color .2s;
+}
+input[type="number"]:focus,input[type="text"]:focus,select:focus{
+  border-color:var(--accent);
+}
+select{
+  -webkit-appearance:none;appearance:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%238a919b' stroke-width='3' stroke-linecap='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 10px center;
+  padding-right:30px;
+}
+.color-input{display:flex;align-items:center;gap:8px}
+input[type="color"]{
+  width:38px;height:38px;border:1.5px solid var(--border);
+  border-radius:8px;background:var(--bg);cursor:pointer;padding:2px;
+}
+.radio-group{display:flex;gap:8px;flex-wrap:wrap}
+.radio-group label{
+  display:flex;align-items:center;gap:6px;
+  padding:8px 12px;border:1.5px solid var(--border);
+  border-radius:8px;font-size:13px;cursor:pointer;
+  transition:all .15s;background:var(--bg);
+}
+.radio-group label.active{border-color:var(--accent);background:var(--accent-soft);color:var(--accent-2)}
+html[data-theme="dark"] .radio-group label.active{color:var(--accent)}
+@media (prefers-color-scheme: dark){
+  html:not([data-theme="light"]) .radio-group label.active{color:var(--accent)}
+}
+.radio-group input{width:16px;height:16px;accent-color:var(--accent)}
+
+/* ============ 主按钮 ============ */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  height:44px;padding:0 20px;border-radius:10px;
+  font-size:14.5px;font-weight:600;
+  transition:all .18s;border:none;
+}
+.btn-primary{background:var(--accent);color:#fff}
+.btn-primary:hover{background:var(--accent-2)}
+.btn-primary:disabled{background:var(--text-3);cursor:not-allowed}
+.btn-ghost{background:var(--bg-soft);color:var(--text)}
+.btn-ghost:hover{background:var(--border)}
+.btn-outline{border:1.5px solid var(--border);background:var(--bg-card);color:var(--text)}
+.btn-outline:hover{border-color:var(--accent);color:var(--accent)}
+.btn-sm{height:34px;padding:0 12px;font-size:13px;border-radius:8px}
+.btn-block{display:flex;width:100%}
+.btn svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+/* ============ 文件列表 ============ */
+.file-list{display:flex;flex-direction:column;gap:8px;margin-top:14px}
+.file-item{
+  display:flex;align-items:center;gap:12px;
+  padding:10px;border:1px solid var(--border);
+  border-radius:10px;background:var(--bg);
+}
+.file-item.done{border-color:var(--accent);background:var(--accent-soft)}
+.file-item.error{border-color:var(--danger);background:var(--danger-bg)}
+.file-thumb{
+  width:54px;height:54px;border-radius:8px;flex-shrink:0;
+  background:var(--bg-soft) center/cover no-repeat;
+  border:1px solid var(--border);
+}
+.file-info{flex:1;min-width:0}
+.file-name{
+  font-size:13px;font-weight:500;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.file-meta{font-size:11.5px;color:var(--text-3);margin-top:2px}
+.file-meta .saved{color:var(--accent-2);font-weight:600}
+html[data-theme="dark"] .file-meta .saved{color:var(--accent)}
+@media (prefers-color-scheme: dark){
+  html:not([data-theme="light"]) .file-meta .saved{color:var(--accent)}
+}
+.file-status{font-size:11.5px;font-weight:600;flex-shrink:0}
+.file-status.pending{color:var(--text-3)}
+.file-status.processing{color:var(--warn)}
+.file-status.done{color:var(--accent-2)}
+html[data-theme="dark"] .file-status.done{color:var(--accent)}
+@media (prefers-color-scheme: dark){
+  html:not([data-theme="light"]) .file-status.done{color:var(--accent)}
+}
+.file-status.error{color:var(--danger)}
+.file-actions{display:flex;gap:6px;flex-shrink:0}
+.file-actions .btn{height:30px;padding:0 10px;font-size:12px}
+
+/* ============ 配额提示 ============ */
+.quota{
+  margin-top:14px;padding:10px 12px;border-radius:10px;
+  background:var(--bg-soft);font-size:12.5px;color:var(--text-2);
+  display:flex;align-items:center;justify-content:space-between;gap:10px;
+}
+.quota.locked{background:var(--warn-bg);color:var(--warn);border:1px solid var(--warn-border)}
+.quota .q-bar{
+  flex:1;height:6px;border-radius:3px;background:var(--border);
+  overflow:hidden;margin:0 10px;max-width:140px;
+}
+.quota .q-bar-fill{height:100%;background:var(--accent);transition:width .3s}
+.quota.locked .q-bar-fill{background:var(--warn)}
+.quota .unlock-link{
+  color:var(--accent-2);font-weight:600;cursor:pointer;text-decoration:underline;
+}
+html[data-theme="dark"] .quota .unlock-link{color:var(--accent)}
+@media (prefers-color-scheme: dark){
+  html:not([data-theme="light"]) .quota .unlock-link{color:var(--accent)}
+}
+
+/* ============ 模态框 ============ */
+.modal-mask{
+  position:fixed;inset:0;background:rgba(0,0,0,.55);
+  z-index:100;display:none;align-items:center;justify-content:center;
+  padding:16px;backdrop-filter:blur(2px);
+}
+.modal-mask.show{display:flex}
+.modal{
+  background:var(--bg-card);border-radius:14px;
+  width:100%;max-width:420px;max-height:90vh;overflow:auto;
+  box-shadow:0 12px 48px rgba(0,0,0,.3);
+}
+.modal-head{
+  padding:16px;border-bottom:1px solid var(--border);
+  display:flex;align-items:center;justify-content:space-between;
+}
+.modal-head h3{font-size:16px;font-weight:600}
+.modal-close{
+  width:30px;height:30px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  color:var(--text-2);font-size:22px;line-height:1;
+}
+.modal-close:hover{background:var(--bg-soft)}
+.modal-body{padding:16px;font-size:14px}
+.modal-body p{margin-bottom:10px;color:var(--text-2)}
+.modal-body .price{
+  font-size:28px;font-weight:700;color:var(--accent-2);
+  margin:14px 0 6px;
+}
+html[data-theme="dark"] .modal-body .price{color:var(--accent)}
+@media (prefers-color-scheme: dark){
+  html:not([data-theme="light"]) .modal-body .price{color:var(--accent)}
+}
+.modal-body .price small{font-size:13px;color:var(--text-3);font-weight:400;margin-left:6px}
+.feature-list-modal{margin:14px 0;padding:12px;background:var(--bg-soft);border-radius:10px}
+.feature-list-modal li{list-style:none;padding:4px 0 4px 22px;position:relative;font-size:13px;color:var(--text-2)}
+.feature-list-modal li::before{
+  content:"✓";position:absolute;left:0;color:var(--accent);font-weight:700;
+}
+.modal-body input[type="text"]{margin:10px 0}
+/* 微信联系卡片 */
+.wechat-card{margin-top:6px;border:1px solid var(--border);border-radius:10px;padding:14px 12px;text-align:center;background:var(--bg)}
+.wechat-label{font-size:12px;color:var(--text-3)}
+.wechat-row{display:flex;align-items:center;justify-content:center;gap:10px;margin:8px 0}
+.wechat-id{font-size:20px;font-weight:700;letter-spacing:1px;color:var(--accent-2);user-select:all}
+html[data-theme="dark"] .wechat-id{color:var(--accent)}
+@media (prefers-color-scheme: dark){
+  html:not([data-theme="light"]) .wechat-id{color:var(--accent)}
+}
+.wechat-tip{font-size:11.5px;color:var(--text-3);line-height:1.5}
+.mid-row{display:flex;align-items:center;gap:8px;justify-content:center;margin-top:10px;flex-wrap:wrap}
+.mid-label{font-size:12px;color:var(--text-3)}
+.mid-row code{font-size:12px;background:var(--bg-soft);padding:4px 8px;border-radius:6px;user-select:all;word-break:break-all;font-family:ui-monospace,Menlo,Consolas,monospace}
+.modal-foot{
+  padding:14px 16px;border-top:1px solid var(--border);
+  display:flex;gap:10px;
+}
+
+/* ============ Toast ============ */
+.toast{
+  position:fixed;bottom:30px;left:50%;transform:translateX(-50%) translateY(20px);
+  background:rgba(20,24,30,.92);color:#fff;
+  padding:10px 18px;border-radius:10px;font-size:13.5px;
+  z-index:200;opacity:0;pointer-events:none;
+  transition:all .25s;max-width:90vw;
+}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+.toast.error{background:rgba(220,38,38,.95)}
+.toast.success{background:rgba(22,163,74,.95)}
+
+/* ============ 页脚 ============ */
+.site-foot{
+  max-width:1100px;margin:40px auto 0;padding:20px 16px 40px;
+  border-top:1px solid var(--border);
+  font-size:12.5px;color:var(--text-3);line-height:1.7;
+}
+.site-foot a{color:var(--accent-2)}
+html[data-theme="dark"] .site-foot a{color:var(--accent)}
+@media (prefers-color-scheme: dark){
+  html:not([data-theme="light"]) .site-foot a{color:var(--accent)}
+}
+.site-foot strong{color:var(--text-2)}
+
+/* ============ 响应式 ============ */
+@media (max-width:540px){
+  .brand-sub{display:none}
+  .main{padding:12px 12px 60px}
+  .section-body{padding:12px}
+  .file-item{flex-wrap:wrap}
+  .file-actions{width:100%;justify-content:flex-end}
+}
+
+/* ============ 工作进度条 ============ */
+.progress{
+  width:100%;height:4px;background:var(--bg-soft);
+  border-radius:2px;overflow:hidden;margin-top:6px;display:none;
+}
+.progress.show{display:block}
+.progress-fill{height:100%;background:var(--accent);width:0;transition:width .2s}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <div class="brand">
+      <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+        <rect width="64" height="64" rx="14" fill="#16a34a"/>
+        <rect x="12" y="14" width="40" height="32" rx="4" fill="none" stroke="white" stroke-width="3"/>
+        <circle cx="24" cy="26" r="4" fill="white"/>
+        <path d="M14 42 L26 30 L34 38 L42 28 L50 42" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <div class="brand-info">
+        <span class="brand-name">图片处理工具</span>
+        <span class="brand-sub">本地处理 · 不上传服务器</span>
+      </div>
+    </div>
+    <button id="themeToggle" aria-label="切换主题">
+      <svg class="icon-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      <svg class="icon-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+    </button>
+  </div>
+</header>
+
+<main class="main">
+
+  <!-- SEO 主标题（唯一 H1，视觉克制） -->
+  <h1 class="page-h1">在线图片压缩、缩放、格式转换、加水印工具</h1>
+
+  <!-- 隐私卖点 -->
+  <div class="privacy-banner">
+    <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+    <span><strong>图片不上传服务器</strong> · 所有处理在你的浏览器本地完成，处理完关闭页面即销毁，保护隐私。</span>
+  </div>
+
+  <!-- 上传区 -->
+  <div class="dropzone" id="dropzone">
+    <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+    <h3>点击或拖拽图片到这里</h3>
+    <p>支持 JPEG / PNG / WebP / GIF / BMP</p>
+    <p class="formats">单次最多 20 张，免费 10 张/会话</p>
+    <input type="file" id="fileInput" accept="image/*" multiple>
+  </div>
+
+  <!-- 功能选择 -->
+  <section class="section">
+    <div class="section-head">
+      <h2>选择处理功能</h2>
+      <span class="badge-count" id="selectedCount">0 项</span>
+    </div>
+    <div class="section-body">
+      <div class="feature-list" id="featureList">
+        <label class="feature-item active" data-feature="compress">
+          <input type="checkbox" id="fCompress" checked>
+          <div>
+            <div class="f-name">压缩图片</div>
+            <div class="f-desc">降低文件体积，可调质量</div>
+          </div>
+        </label>
+        <label class="feature-item" data-feature="resize">
+          <input type="checkbox" id="fResize">
+          <div>
+            <div class="f-name">缩放尺寸</div>
+            <div class="f-desc">按比例或自定义宽高</div>
+          </div>
+        </label>
+        <label class="feature-item" data-feature="convert">
+          <input type="checkbox" id="fConvert">
+          <div>
+            <div class="f-name">格式转换</div>
+            <div class="f-desc">JPEG / PNG / WebP 互转</div>
+          </div>
+        </label>
+        <label class="feature-item" data-feature="watermark">
+          <input type="checkbox" id="fWatermark">
+          <div>
+            <div class="f-name">加水印</div>
+            <div class="f-desc">文字水印，可调位置/字号/透明度</div>
+          </div>
+        </label>
+      </div>
+
+      <!-- 压缩参数 -->
+      <div class="params show" id="paramsCompress" data-for="compress">
+        <div class="param-row inline">
+          <div class="param-body">
+            <div class="param-label">压缩质量</div>
+            <div class="param-hint">数值越低文件越小，质量越差</div>
+          </div>
+          <div class="param-value" id="qualityVal">75%</div>
+        </div>
+        <input type="range" id="quality" min="10" max="100" value="75" step="5">
+        <div class="param-row">
+          <div class="param-label">输出格式</div>
+          <div class="radio-group" id="compressFmt">
+            <label data-fmt="auto" class="active"><input type="radio" name="cFmt" value="auto" checked>自动</label>
+            <label data-fmt="jpeg"><input type="radio" name="cFmt" value="jpeg">JPEG</label>
+            <label data-fmt="webp"><input type="radio" name="cFmt" value="webp">WebP</label>
+            <label data-fmt="png"><input type="radio" name="cFmt" value="png">PNG</label>
+          </div>
+          <div class="param-hint">WebP 体积更小，兼容现代浏览器；JPEG 通用；PNG 无损</div>
+        </div>
+      </div>
+
+      <!-- 缩放参数 -->
+      <div class="params" id="paramsResize" data-for="resize">
+        <div class="param-row">
+          <div class="param-label">缩放方式</div>
+          <div class="radio-group" id="resizeMode">
+            <label data-mode="percent" class="active"><input type="radio" name="rMode" value="percent" checked>按比例</label>
+            <label data-mode="width"><input type="radio" name="rMode" value="width">指定宽度</label>
+            <label data-mode="height"><input type="radio" name="rMode" value="height">指定高度</label>
+            <label data-mode="both"><input type="radio" name="rMode" value="both">宽+高</label>
+          </div>
+        </div>
+        <div class="param-row inline" id="rowPercent">
+          <div class="param-body">
+            <div class="param-label">缩放比例</div>
+            <div class="param-hint">50% 即缩小一半</div>
+          </div>
+          <div class="param-value" id="scaleVal">50%</div>
+        </div>
+        <input type="range" id="scale" min="5" max="200" value="50" step="5" data-show="rowPercent">
+        <div class="param-row" id="rowWidth" style="display:none">
+          <div class="param-label">目标宽度（px）</div>
+          <input type="number" id="targetW" min="1" max="10000" value="800" placeholder="如 800">
+        </div>
+        <div class="param-row" id="rowHeight" style="display:none">
+          <div class="param-label">目标高度（px）</div>
+          <input type="number" id="targetH" min="1" max="10000" value="600" placeholder="如 600">
+        </div>
+        <div class="param-row" id="rowBoth" style="display:none;gap:10px">
+          <div style="flex:1">
+            <div class="param-label">宽度（px）</div>
+            <input type="number" id="targetWB" min="1" max="10000" value="800">
+          </div>
+          <div style="flex:1">
+            <div class="param-label">高度（px）</div>
+            <input type="number" id="targetHB" min="1" max="10000" value="600">
+          </div>
+        </div>
+        <div class="param-row">
+          <label style="display:flex;align-items:center;gap:6px;font-size:13px;color:var(--text-2)">
+            <input type="checkbox" id="keepRatio" checked> 保持原始宽高比
+          </label>
+        </div>
+      </div>
+
+      <!-- 转换参数 -->
+      <div class="params" id="paramsConvert" data-for="convert">
+        <div class="param-row">
+          <div class="param-label">转换为</div>
+          <div class="radio-group" id="convertFmt">
+            <label data-fmt="jpeg" class="active"><input type="radio" name="vFmt" value="jpeg" checked>JPEG</label>
+            <label data-fmt="png"><input type="radio" name="vFmt" value="png">PNG</label>
+            <label data-fmt="webp"><input type="radio" name="vFmt" value="webp">WebP</label>
+          </div>
+          <div class="param-hint">PNG 透明背景会丢失 → JPEG；WebP 同时支持透明与有损</div>
+        </div>
+        <div class="param-row inline">
+          <div class="param-body">
+            <div class="param-label">输出质量（JPEG/WebP）</div>
+            <div class="param-hint">PNG 无损，此参数无效</div>
+          </div>
+          <div class="param-value" id="convQualityVal">85%</div>
+        </div>
+        <input type="range" id="convQuality" min="10" max="100" value="85" step="5">
+      </div>
+
+      <!-- 水印参数 -->
+      <div class="params" id="paramsWatermark" data-for="watermark">
+        <div class="param-row">
+          <div class="param-label">水印文字</div>
+          <input type="text" id="wmText" value="© 我的图片" maxlength="40">
+        </div>
+        <div class="param-row">
+          <div class="param-label">位置</div>
+          <div class="radio-group" id="wmPos">
+            <label data-pos="lt"><input type="radio" name="wPos" value="lt">左上</label>
+            <label data-pos="ct"><input type="radio" name="wPos" value="ct">中上</label>
+            <label data-pos="rt" class="active"><input type="radio" name="wPos" value="rt" checked>右上</label>
+            <label data-pos="lb"><input type="radio" name="wPos" value="lb">左下</label>
+            <label data-pos="cb"><input type="radio" name="wPos" value="cb">中下</label>
+            <label data-pos="rb"><input type="radio" name="wPos" value="rb">右下</label>
+            <label data-pos="cc"><input type="radio" name="wPos" value="cc">居中</label>
+          </div>
+        </div>
+        <div class="param-row inline">
+          <div class="param-body">
+            <div class="param-label">字号（占图片宽度的比例）</div>
+            <div class="param-hint">小图自动等比</div>
+          </div>
+          <div class="param-value" id="wmSizeVal">4%</div>
+        </div>
+        <input type="range" id="wmSize" min="2" max="20" value="4" step="1">
+        <div class="param-row inline">
+          <div class="param-body">
+            <div class="param-label">透明度</div>
+          </div>
+          <div class="param-value" id="wmOpacityVal">50%</div>
+        </div>
+        <input type="range" id="wmOpacity" min="10" max="100" value="50" step="5">
+        <div class="param-row">
+          <div class="param-label">颜色</div>
+          <div class="color-input">
+            <input type="color" id="wmColor" value="#ffffff">
+            <input type="text" id="wmColorText" value="#ffffff" style="max-width:100px">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 文件列表 -->
+  <section class="section" id="filesSection" style="display:none">
+    <div class="section-head">
+      <h2>待处理文件</h2>
+      <span class="badge-count" id="filesCount">0 张</span>
+    </div>
+    <div class="section-body">
+      <div class="file-list" id="fileList"></div>
+
+      <!-- 配额 -->
+      <div class="quota" id="quota">
+        <span id="quotaText">本会话已用 0/10 张</span>
+        <div class="q-bar"><div class="q-bar-fill" id="qBarFill" style="width:0"></div></div>
+        <span class="unlock-link" id="unlockLink">永久解锁批量 →</span>
+      </div>
+
+      <!-- 处理按钮 -->
+      <div style="margin-top:16px;display:flex;gap:10px;flex-wrap:wrap">
+        <button class="btn btn-primary btn-block" id="processBtn" disabled>
+          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          开始处理
+        </button>
+        <button class="btn btn-outline btn-block" id="downloadAllBtn" style="display:none">
+          <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          全部下载
+        </button>
+        <button class="btn btn-ghost btn-sm" id="clearBtn" style="display:none">清空</button>
+      </div>
+      <div class="progress" id="progress"><div class="progress-fill" id="progressFill"></div></div>
+    </div>
+  </section>
+
+  <!-- SEO FAQ 区块 -->
+  <section class="section" aria-label="常见问题">
+    <div class="section-head"><h2>常见问题</h2></div>
+    <div class="section-body">
+      <div class="faq-item">
+        <h3>图片会被上传到服务器吗？</h3>
+        <p>不会。本工具所有处理全部在你的浏览器内完成，图片从选择到输出始终留在你的设备上，关闭页面即销毁。这也是它比普通在线图片工具更安全的原因，适合处理身份证、合同、私人照片等敏感图片。</p>
+      </div>
+      <div class="faq-item">
+        <h3>图片压缩后画质损失大吗？</h3>
+        <p>压缩质量可自行调节。推荐 70%-85% 区间：体积通常缩小 50%-80%，肉眼几乎察觉不到画质变化。缩放尺寸后再压缩，小图效果更佳。</p>
+      </div>
+      <div class="faq-item">
+        <h3>支持批量处理多张图片吗？</h3>
+        <p>支持。免费版每个会话可处理 10 张，输入解锁码后单次最多 50 张、张数不限。所有图片按顺序在本地依次处理，无需等待上传下载。</p>
+      </div>
+      <div class="faq-item">
+        <h3>手机上能用吗？需要安装 App 吗？</h3>
+        <p>手机浏览器打开即用，无需安装任何 App。也可以通过浏览器菜单"添加到主屏幕"，之后像原生应用一样离线使用（PWA）。</p>
+      </div>
+      <div class="faq-item">
+        <h3>WebP 和 JPEG 该选哪个格式？</h3>
+        <p>追求最小体积选 WebP（比 JPEG 小 25%-35%，且支持透明）；需要兼容老设备或某些软件选 JPEG；需要无损透明背景选 PNG。转换功能支持三者互转。</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- 解锁模态框 -->
+<div class="modal-mask" id="unlockModal">
+  <div class="modal">
+    <div class="modal-head">
+      <h3 id="unlockTitle">永久解锁批量处理</h3>
+      <button class="modal-close" id="unlockClose">×</button>
+    </div>
+    <div class="modal-body">
+      <!-- 未解锁：加微信手动发码（验证期方案，后续接正规支付） -->
+      <div id="unlockContactArea">
+        <p>免费版每会话限 10 张图片。加作者微信，<strong>¥9.9 一次性</strong>获取永久解锁码：</p>
+        <ul class="feature-list-modal">
+          <li>无限制批量处理，单次最多 50 张</li>
+          <li>全部功能永久可用，未来升级免费</li>
+          <li>本地处理，图片永不上传</li>
+        </ul>
+        <div class="wechat-card">
+          <div class="wechat-label">作者微信号（点击复制）</div>
+          <div class="wechat-row">
+            <span class="wechat-id" id="wechatId">—</span>
+            <button class="btn btn-outline btn-sm" id="copyWechatBtn">复制</button>
+          </div>
+          <div class="wechat-tip">添加时请备注「图片解锁」</div>
+          <div class="mid-row">
+            <span class="mid-label">我的设备码：</span>
+            <code id="machineIdText">—</code>
+            <button class="btn btn-outline btn-sm" id="copyMidBtn">复制</button>
+          </div>
+          <div class="wechat-tip" style="margin-top:8px">加微信后发送「设备码 + ¥9.9 付款截图」<br>核验后发放解锁码，通常 24 小时内回复</div>
+        </div>
+        <button class="btn btn-ghost btn-block btn-sm" id="showCodeEntryBtn" style="margin-top:10px">已有解锁码？点此输入</button>
+        <div id="unlockInputArea" style="margin-top:12px;display:none">
+          <input type="text" id="unlockCodeInput" placeholder="输入解锁码">
+          <button class="btn btn-primary btn-block" id="verifyCodeBtn" style="margin-top:8px">验证解锁码</button>
+        </div>
+      </div>
+      <!-- 已解锁状态 -->
+      <div id="unlockDoneArea" style="display:none;text-align:center;padding:16px 0">
+        <div style="color:var(--accent);font-weight:600;font-size:15px">✓ 已永久解锁批量处理</div>
+        <p style="margin-top:8px;font-size:12.5px">感谢支持！如更换设备需重新解锁，可再加微信联系</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 页脚 -->
+<footer class="site-foot">
+  <p><strong>关于本工具</strong>：所有图片处理均在你的浏览器本地完成，<strong>图片不会上传到任何服务器</strong>。处理完成后关闭页面即销毁，最大程度保护隐私。支持手机端离线使用（添加到主屏幕）。</p>
+  <p><strong>支持格式</strong>：JPEG / PNG / WebP / GIF / BMP（输入）；JPEG / PNG / WebP（输出）</p>
+  <p><strong>免费版</strong>：每会话 10 张图片；需要批量更多？处理时点击「永久解锁批量」，加微信 ¥9.9 获取解锁码。</p>
+  <p style="margin-top:10px"><strong>分功能入口</strong>：<a href="/compress.html" style="color:inherit">图片压缩</a> · <a href="/resize.html" style="color:inherit">修改尺寸</a> · <a href="/convert.html" style="color:inherit">格式转换</a> · <a href="/watermark.html" style="color:inherit">图片加水印</a></p>
+  <p style="margin-top:6px"><strong>使用教程</strong>：<a href="/compress-to-size.html" style="color:inherit">照片压到 20KB/200KB/500KB</a> · <a href="/wechat-image-too-large.html" style="color:inherit">微信发图太大怎么办</a> · <a href="/webp-guide.html" style="color:inherit">WebP 打不开怎么办</a></p>
+  <p style="margin-top:10px;opacity:.7">© 2026 图片处理工具 · 本地处理 · 隐私优先</p>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script>
+/* ============================================================
+   图片处理工具 - 主逻辑
+   全部本地处理，不上传服务器
+   ============================================================ */
+
+(function(){
+'use strict';
+
+/* ============ 状态 ============ */
+const state = {
+  files: [],          // {id, file, name, size, type, status, blob, url, outName, outSize, thumb}
+  quota: { used: 0, max: 10 },
+  unlocked: false,
+  machineId: null,
+};
+
+const FREE_MAX = 10;
+const PRO_MAX = 50;
+const ALLOWED_IN = ['image/jpeg','image/png','image/webp','image/gif','image/bmp'];
+const OUT_EXT = { jpeg:'jpg', png:'png', webp:'webp' };
+
+/* ============ 工具函数 ============ */
+const $ = id => document.getElementById(id);
+const fmtSize = b => b < 1024 ? b+'B' : b < 1048576 ? (b/1024).toFixed(1)+'KB' : (b/1048576).toFixed(2)+'MB';
+const extOf = name => { const m = name.toLowerCase().match(/\.([a-z]+)$/); return m ? m[1] : ''; };
+const baseName = name => name.replace(/\.[^.]+$/, '');
+const toast = (msg, type='') => {
+  const t = $('toast');
+  t.textContent = msg;
+  t.className = 'toast show ' + type;
+  clearTimeout(t._timer);
+  t._timer = setTimeout(()=>{ t.className='toast'; }, 2400);
+};
+
+/* ============ 主题切换 ============ */
+const themeKey = 'img-tools-theme';
+function applyTheme(t){
+  document.documentElement.setAttribute('data-theme', t);
+  localStorage.setItem(themeKey, t);
+}
+function initTheme(){
+  const saved = localStorage.getItem(themeKey);
+  if(saved){ applyTheme(saved); }
+  else{
+    const dark = matchMedia('(prefers-color-scheme: dark)').matches;
+    applyTheme(dark ? 'dark' : 'light');
+  }
+}
+$('themeToggle').addEventListener('click', ()=>{
+  const cur = document.documentElement.getAttribute('data-theme');
+  applyTheme(cur === 'dark' ? 'light' : 'dark');
+});
+
+/* ============ 解锁状态（本机绑定） ============ */
+const UNLOCK_KEY = 'img-tools-unlock';
+// 作者微信号：验证期手动发码用，上线前必须替换为真实微信号
+const CONTACT_WECHAT = '';
+function getMachineId(){
+  // 用浏览器指纹简单生成本机ID（不含敏感信息）
+  if(state.machineId) return state.machineId;
+  let id = localStorage.getItem('img-tools-mid');
+  if(!id){
+    const seed = [
+      navigator.userAgent,
+      navigator.language,
+      screen.width+'x'+screen.height,
+      new Date().getTimezoneOffset(),
+      navigator.hardwareConcurrency || 0,
+    ].join('|');
+    // 简单哈希
+    let h = 5381;
+    for(let i=0;i<seed.length;i++){ h = ((h<<5)+h) ^ seed.charCodeAt(i); h = h >>> 0; }
+    id = 'm' + h.toString(36) + Date.now().toString(36).slice(-4);
+    localStorage.setItem('img-tools-mid', id);
+  }
+  state.machineId = id;
+  return id;
+}
+async function checkUnlock(){
+  const saved = localStorage.getItem(UNLOCK_KEY);
+  // 注意：generateExpectedCode 是异步的（SHA-256），必须 await，
+  // 否则字符串与 Promise 比较恒为 false，会导致刷新后解锁状态丢失
+  if(saved && saved === await generateExpectedCode(getMachineId())){
+    state.unlocked = true;
+    state.quota.max = PRO_MAX;
+    return true;
+  }
+  state.unlocked = false;
+  state.quota.max = FREE_MAX;
+  return false;
+}
+// 解锁码生成：HMAC 算法（密钥混淆嵌入，简单防破解）
+// 算法：sha256(machineId + 'img-tools-2026-salt') 前 12 字符 base36
+async function sha256Hex(str){
+  const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(str));
+  return Array.from(new Uint8Array(buf)).map(b=>b.toString(16).padStart(2,'0')).join('');
+}
+async function generateExpectedCode(mid){
+  const hash = await sha256Hex(mid + '|img-tools-pro-2026|x9k2m7');
+  // 取前 16 位，每 4 位一组用 base36 编码，得到 4 段 4 字符的码
+  const seg = [];
+  for(let i=0;i<4;i++){
+    const part = hash.substr(i*4, 4);
+    const n = parseInt(part, 16);
+    seg.push(n.toString(36).toUpperCase().padStart(4,'0').slice(-4));
+  }
+  return seg.join('-');
+}
+async function refreshUnlockUI(){
+  try{
+    await checkUnlock();
+  }catch(e){
+    // 校验异常（如浏览器不支持 crypto）按未解锁处理
+    state.unlocked = false;
+    state.quota.max = FREE_MAX;
+  }
+  const q = $('quota');
+  const qText = $('quotaText');
+  const qBar = $('qBarFill');
+  const unlockLink = $('unlockLink');
+  const used = state.quota.used;
+  const max = state.quota.max;
+  qText.textContent = state.unlocked
+    ? `已永久解锁 · 本会话 ${used} 张`
+    : `本会话已用 ${used}/${max} 张`;
+  qBar.style.width = Math.min(100, used/max*100) + '%';
+  if(state.unlocked){
+    q.classList.remove('locked');
+    unlockLink.style.display = 'none';
+  } else {
+    q.classList.add('locked');
+    unlockLink.style.display = '';
+    if(used >= max){
+      qText.textContent = `已达免费上限 ${used}/${max} 张，请解锁或下个会话继续`;
+    }
+  }
+}
+
+/* ============ 功能开关 ============ */
+const features = ['compress','resize','convert','watermark'];
+function getActiveFeatures(){
+  return features.filter(f => $('f' + f.charAt(0).toUpperCase() + f.slice(1)).checked);
+}
+function updateFeatureUI(){
+  features.forEach(f => {
+    const cb = $('f' + f.charAt(0).toUpperCase() + f.slice(1));
+    const panel = $('params' + f.charAt(0).toUpperCase() + f.slice(1));
+    const item = document.querySelector(`.feature-item[data-feature="${f}"]`);
+    if(cb.checked){
+      item.classList.add('active');
+      panel.classList.add('show');
+    } else {
+      item.classList.remove('active');
+      panel.classList.remove('show');
+    }
+  });
+  $('selectedCount').textContent = getActiveFeatures().length + ' 项';
+  validateProcessBtn();
+}
+features.forEach(f => {
+  const cb = $('f' + f.charAt(0).toUpperCase() + f.slice(1));
+  cb.addEventListener('change', updateFeatureUI);
+  // 点击整个item也切换
+  const item = document.querySelector(`.feature-item[data-feature="${f}"]`);
+  item.addEventListener('click', e => {
+    if(e.target === cb) return; // 让原生checkbox处理
+    cb.checked = !cb.checked;
+    updateFeatureUI();
+  });
+});
+
+/* ============ 参数滑块联动 ============ */
+function bindRange(rangeId, valId, suffix='%'){
+  const r = $(rangeId), v = $(valId);
+  const upd = ()=>{ v.textContent = r.value + suffix; };
+  r.addEventListener('input', upd); upd();
+}
+bindRange('quality','qualityVal');
+bindRange('scale','scaleVal');
+bindRange('convQuality','convQualityVal');
+bindRange('wmSize','wmSizeVal');
+bindRange('wmOpacity','wmOpacityVal');
+
+// 缩放模式切换
+document.querySelectorAll('#resizeMode label').forEach(lbl => {
+  lbl.addEventListener('click', ()=>{
+    document.querySelectorAll('#resizeMode label').forEach(l => l.classList.remove('active'));
+    lbl.classList.add('active');
+    const mode = lbl.dataset.mode;
+    $('rowPercent').style.display = mode==='percent' ? 'flex' : 'none';
+    $('scale').style.display = mode==='percent' ? 'block' : 'none';
+    $('rowWidth').style.display = mode==='width' ? 'flex' : 'none';
+    $('rowHeight').style.display = mode==='height' ? 'flex' : 'none';
+    $('rowBoth').style.display = mode==='both' ? 'flex' : 'none';
+  });
+});
+// 格式选择 radio
+function bindRadioGroup(groupId, cls='active'){
+  document.querySelectorAll(`#${groupId} label`).forEach(lbl => {
+    lbl.addEventListener('click', ()=>{
+      document.querySelectorAll(`#${groupId} label`).forEach(l => l.classList.remove(cls));
+      lbl.classList.add(cls);
+    });
+  });
+}
+bindRadioGroup('compressFmt');
+bindRadioGroup('convertFmt');
+bindRadioGroup('wmPos');
+// 颜色文本框联动
+$('wmColor').addEventListener('input', e => $('wmColorText').value = e.target.value);
+$('wmColorText').addEventListener('input', e => {
+  const v = e.target.value;
+  if(/^#[0-9a-fA-F]{6}$/.test(v)) $('wmColor').value = v;
+});
+
+/* ============ 文件上传 ============ */
+const dropzone = $('dropzone');
+const fileInput = $('fileInput');
+dropzone.addEventListener('click', e => {
+  if(e.target === fileInput) return;
+  fileInput.click();
+});
+fileInput.addEventListener('change', e => addFiles(e.target.files));
+['dragenter','dragover'].forEach(ev => dropzone.addEventListener(ev, e => {
+  e.preventDefault(); dropzone.classList.add('dragover');
+}));
+['dragleave','drop'].forEach(ev => dropzone.addEventListener(ev, e => {
+  e.preventDefault(); dropzone.classList.remove('dragover');
+}));
+dropzone.addEventListener('drop', e => {
+  const files = e.dataTransfer.files;
+  if(files && files.length) addFiles(files);
+});
+
+function addFiles(fileList){
+  const arr = Array.from(fileList);
+  const maxPerAdd = state.unlocked ? PRO_MAX : FREE_MAX;
+  let added = 0, rejected = 0;
+  const remaining = state.quota.max - state.quota.used;
+  for(const file of arr){
+    if(state.files.length + added >= maxPerAdd) {
+      toast(`已达单次上限 ${maxPerAdd} 张`, 'error');
+      break;
+    }
+    if(!state.unlocked && added >= remaining){
+      toast(`本会话已达 ${FREE_MAX} 张免费上限，点下方「永久解锁批量」`, 'error');
+      break;
+    }
+    if(!ALLOWED_IN.includes(file.type)){
+      rejected++; continue;
+    }
+    if(file.size > 50 * 1024 * 1024){ // 50MB 单图上限
+      toast(`${file.name} 超过 50MB，跳过`, 'error');
+      rejected++; continue;
+    }
+    const id = 'f' + Date.now() + '_' + Math.random().toString(36).substr(2,6);
+    const item = {
+      id, file,
+      name: file.name,
+      size: file.size,
+      type: file.type,
+      status: 'pending',
+      blob: null, url: null, outName: null, outSize: 0,
+      thumb: URL.createObjectURL(file),
+    };
+    state.files.push(item);
+    state.quota.used++;
+    added++;
+  }
+  if(added) renderFiles();
+  if(rejected) toast(`${rejected} 个文件格式不支持已跳过`);
+  refreshUnlockUI();
+}
+
+function renderFiles(){
+  const list = $('fileList');
+  const section = $('filesSection');
+  if(state.files.length === 0){
+    section.style.display = 'none';
+    return;
+  }
+  section.style.display = '';
+  $('filesCount').textContent = state.files.length + ' 张';
+  list.innerHTML = state.files.map(f => `
+    <div class="file-item ${f.status}" data-id="${f.id}">
+      <div class="file-thumb" style="background-image:url('${f.thumb}')"></div>
+      <div class="file-info">
+        <div class="file-name">${escapeHtml(f.name)}</div>
+        <div class="file-meta">
+          ${fmtSize(f.size)}
+          ${f.outSize ? ` → <span class="saved">${fmtSize(f.outSize)}</span> ${f.outSize < f.size ? '↓'+Math.round((1-f.outSize/f.size)*100)+'%' : ''}` : ''}
+          ${f.status==='error' && f.error ? ` · <span style="color:var(--danger)">${escapeHtml(f.error)}</span>` : ''}
+        </div>
+      </div>
+      <div class="file-status ${f.status}">${statusText(f.status)}</div>
+      <div class="file-actions">
+        ${f.url ? `<a class="btn btn-outline btn-sm" href="${f.url}" download="${escapeAttr(f.outName)}">下载</a>` : ''}
+        <button class="btn btn-ghost btn-sm" data-act="remove" data-id="${f.id}">移除</button>
+      </div>
+    </div>
+  `).join('');
+  // 绑定移除按钮
+  list.querySelectorAll('[data-act="remove"]').forEach(btn => {
+    btn.addEventListener('click', ()=> removeFile(btn.dataset.id));
+  });
+  // 显示/隐藏全部下载
+  const hasDone = state.files.some(f => f.url);
+  $('downloadAllBtn').style.display = hasDone ? 'flex' : 'none';
+  $('clearBtn').style.display = state.files.length ? 'inline-flex' : 'none';
+  validateProcessBtn();
+}
+function statusText(s){
+  return {pending:'待处理',processing:'处理中',done:'已完成',error:'失败'}[s] || s;
+}
+function removeFile(id){
+  const idx = state.files.findIndex(f => f.id === id);
+  if(idx < 0) return;
+  const f = state.files[idx];
+  if(f.thumb) URL.revokeObjectURL(f.thumb);
+  if(f.url) URL.revokeObjectURL(f.url);
+  state.files.splice(idx, 1);
+  // 注意：配额不回退（防止反复添加删除绕过限制）
+  renderFiles();
+  refreshUnlockUI();
+}
+function escapeHtml(s){ return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+function escapeAttr(s){ return escapeHtml(s); }
+
+function validateProcessBtn(){
+  const hasFiles = state.files.length > 0;
+  const hasFeatures = getActiveFeatures().length > 0;
+  const canMore = state.unlocked || state.quota.used < state.quota.max;
+  $('processBtn').disabled = !(hasFiles && hasFeatures);
+}
+
+/* ============ 核心：图片处理 ============ */
+async function loadImage(file){
+  return new Promise((resolve, reject) => {
+    const img = new Image();
+    img.onload = ()=> resolve(img);
+    img.onerror = ()=> reject(new Error('图片加载失败'));
+    img.src = URL.createObjectURL(file);
+  });
+}
+function canvasToBlob(canvas, type, quality){
+  return new Promise((resolve, reject) => {
+    canvas.toBlob(b => b ? resolve(b) : reject(new Error('编码失败')), type, quality);
+  });
+}
+async function processOne(item){
+  const feats = getActiveFeatures();
+  if(feats.length === 0) throw new Error('未选择功能');
+  // GIF 只取首帧处理
+  const img = await loadImage(item.file);
+  let w = img.naturalWidth, h = img.naturalHeight;
+  // 缩放
+  if(feats.includes('resize')){
+    const mode = document.querySelector('#resizeMode label.active').dataset.mode;
+    const keepRatio = $('keepRatio').checked;
+    let nw = w, nh = h;
+    if(mode === 'percent'){
+      const p = parseInt($('scale').value, 10) / 100;
+      nw = Math.max(1, Math.round(w * p));
+      nh = Math.max(1, Math.round(h * p));
+    } else if(mode === 'width'){
+      nw = parseInt($('targetW').value, 10) || w;
+      nh = keepRatio ? Math.round(nw * h / w) : h;
+    } else if(mode === 'height'){
+      nh = parseInt($('targetH').value, 10) || h;
+      nw = keepRatio ? Math.round(nh * w / h) : w;
+    } else if(mode === 'both'){
+      nw = parseInt($('targetWB').value, 10) || w;
+      nh = parseInt($('targetHB').value, 10) || h;
+    }
+    w = nw; h = nh;
+  }
+  // 创建画布
+  const canvas = document.createElement('canvas');
+  canvas.width = w; canvas.height = h;
+  const ctx = canvas.getContext('2d');
+  // JPEG 不支持透明，先填白底
+  let outType = item.type === 'image/png' ? 'image/png' : 'image/jpeg';
+  let outExt = extOf(item.name) || (item.type === 'image/png' ? 'png' : 'jpg');
+  // 决定输出类型
+  if(feats.includes('convert')){
+    const fmt = document.querySelector('#convertFmt label.active').dataset.fmt;
+    outType = 'image/' + fmt;
+    outExt = OUT_EXT[fmt];
+  } else if(feats.includes('compress')){
+    const cfmt = document.querySelector('#compressFmt label.active').dataset.fmt;
+    if(cfmt === 'auto'){
+      // 保持原格式，gif→jpeg
+      outType = item.type === 'image/png' ? 'image/png'
+              : item.type === 'image/webp' ? 'image/webp'
+              : 'image/jpeg';
+      outExt = item.type === 'image/png' ? 'png' : item.type === 'image/webp' ? 'webp' : 'jpg';
+    } else {
+      outType = 'image/' + cfmt;
+      outExt = OUT_EXT[cfmt];
+    }
+  }
+  if(outType === 'image/jpeg' || outType === 'image/webp'){
+    // 填白底（防透明图变黑）
+    ctx.fillStyle = '#ffffff';
+    ctx.fillRect(0, 0, w, h);
+  }
+  ctx.drawImage(img, 0, 0, w, h);
+  // 水印
+  if(feats.includes('watermark')){
+    const text = $('wmText').value || '';
+    if(text){
+      const pos = document.querySelector('#wmPos label.active').dataset.pos;
+      const sizeP = parseInt($('wmSize').value, 10) / 100;
+      const opacity = parseInt($('wmOpacity').value, 10) / 100;
+      const color = $('wmColor').value;
+      const fontSize = Math.max(10, Math.round(w * sizeP / 8) * 8); // 字号基于图片宽度
+      ctx.font = `bold ${fontSize}px -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif`;
+      ctx.textBaseline = 'top';
+      ctx.fillStyle = color;
+      ctx.globalAlpha = opacity;
+      // 文本测量
+      const m = ctx.measureText(text);
+      const tw = m.width, th = fontSize * 1.2;
+      const pad = Math.max(8, Math.round(w * 0.02));
+      let x, y;
+      const align = {lt:'left',ct:'center',rt:'right',lb:'left',cb:'center',rb:'right',cc:'center'}[pos];
+      ctx.textAlign = align;
+      const isTop = pos.endsWith('t'), isMid = pos.endsWith('c'), isBot = pos.endsWith('b');
+      if(pos === 'cc'){
+        x = w/2; y = h/2 - th/2;
+      } else {
+        if(align === 'left') x = pad;
+        else if(align === 'center') x = isTop || isBot ? w/2 : w/2;
+        else x = w - pad;
+        if(isTop) y = pad;
+        else if(isBot) y = h - th - pad;
+        else y = h/2 - th/2;
+      }
+      // 阴影增强可读性
+      ctx.shadowColor = 'rgba(0,0,0,0.5)';
+      ctx.shadowBlur = Math.max(2, fontSize/8);
+      ctx.shadowOffsetX = 0;
+      ctx.shadowOffsetY = 1;
+      ctx.fillText(text, x, y);
+      ctx.globalAlpha = 1;
+      ctx.shadowColor = 'transparent';
+    }
+  }
+  // 质量
+  let quality = 0.92;
+  if(feats.includes('compress')){
+    quality = parseInt($('quality').value, 10) / 100;
+  } else if(feats.includes('convert')){
+    quality = parseInt($('convQuality').value, 10) / 100;
+  }
+  if(outType === 'image/png') quality = undefined; // PNG 无损
+  // 编码
+  const blob = await canvasToBlob(canvas, outType, quality);
+  // 释放原图
+  if(item.thumb) URL.revokeObjectURL(item.thumb);
+  if(item.url) URL.revokeObjectURL(item.url);
+  item.blob = blob;
+  item.url = URL.createObjectURL(blob);
+  item.outSize = blob.size;
+  item.outName = baseName(item.name) + '_processed.' + outExt;
+  item.thumb = URL.createObjectURL(blob);
+  item.status = 'done';
+  // 释放原图对象
+  if(img.src) URL.revokeObjectURL(img.src);
+}
+
+/* ============ 处理流程 ============ */
+$('processBtn').addEventListener('click', async () => {
+  const pending = state.files.filter(f => f.status !== 'done');
+  if(pending.length === 0) { toast('没有待处理文件'); return; }
+  if(getActiveFeatures().length === 0){ toast('请至少选择一项功能', 'error'); return; }
+  const btn = $('processBtn');
+  btn.disabled = true;
+  btn.innerHTML = '<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke-dasharray="40" stroke-dashoffset="20" transform="rotate(-90 12 12)"/></svg>处理中...';
+  $('progress').classList.add('show');
+  let done = 0;
+  for(const f of pending){
+    f.status = 'processing';
+    renderFiles();
+    try {
+      await processOne(f);
+    } catch(err) {
+      f.status = 'error';
+      f.error = err.message || '处理失败';
+    }
+    done++;
+    $('progressFill').style.width = (done/pending.length*100) + '%';
+    renderFiles();
+  }
+  btn.disabled = false;
+  btn.innerHTML = '<svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>开始处理';
+  setTimeout(()=>$('progress').classList.remove('show'), 1000);
+  const okN = state.files.filter(f=>f.status==='done').length;
+  const errN = state.files.filter(f=>f.status==='error').length;
+  if(errN) toast(`完成 ${okN} 张，失败 ${errN} 张`, 'error');
+  else toast(`处理完成 ${okN} 张`, 'success');
+});
+
+/* ============ 全部下载 ============ */
+$('downloadAllBtn').addEventListener('click', async () => {
+  const doneFiles = state.files.filter(f => f.url);
+  if(doneFiles.length === 0) return;
+  // 优先使用 File System Access API（Chrome/Edge）
+  if(window.showDirectoryPicker){
+    try {
+      const dir = await window.showDirectoryPicker({ mode: 'readwrite' });
+      let ok = 0;
+      for(const f of doneFiles){
+        try {
+          const fh = await dir.getFileHandle(f.outName, { create:true });
+          const w = await fh.createWritable();
+          await w.write(f.blob);
+          await w.close();
+          ok++;
+        } catch(e){ /* 单个失败忽略 */ }
+      }
+      toast(`已保存 ${ok} 张到文件夹`, 'success');
+      return;
+    } catch(e){
+      if(e.name === 'AbortError') return; // 用户取消
+      // 其他错误降级
+    }
+  }
+  // 降级：逐个下载
+  let i = 0;
+  for(const f of doneFiles){
+    setTimeout(()=>{
+      const a = document.createElement('a');
+      a.href = f.url; a.download = f.outName;
+      document.body.appendChild(a); a.click(); a.remove();
+    }, i * 250);
+    i++;
+  }
+  toast(`开始下载 ${doneFiles.length} 张`, 'success');
+});
+
+$('clearBtn').addEventListener('click', () => {
+  if(!confirm('清空所有文件？已处理结果也会清除。')) return;
+  state.files.forEach(f => {
+    if(f.thumb) URL.revokeObjectURL(f.thumb);
+    if(f.url) URL.revokeObjectURL(f.url);
+  });
+  state.files = [];
+  renderFiles();
+});
+
+/* ============ 解锁流程（验证期：加微信手动发码） ============ */
+$('unlockLink').addEventListener('click', () => openUnlockModal());
+function openUnlockModal(){
+  $('unlockModal').classList.add('show');
+  const done = state.unlocked;
+  // 已解锁 / 未解锁两种状态切换
+  $('unlockContactArea').style.display = done ? 'none' : '';
+  $('unlockDoneArea').style.display = done ? '' : 'none';
+  $('unlockTitle').textContent = done ? '解锁状态' : '永久解锁批量处理';
+  if(!done){
+    // 填充微信号（未配置时显示"即将开放"，避免放出假号）
+    const wEl = $('wechatId');
+    const copyBtn = $('copyWechatBtn');
+    if(CONTACT_WECHAT){
+      wEl.textContent = CONTACT_WECHAT;
+      copyBtn.disabled = false;
+    }else{
+      wEl.textContent = '即将开放';
+      copyBtn.disabled = true;
+    }
+    // 展示本机设备码（买家发给作者用于生成解锁码）
+    $('machineIdText').textContent = getMachineId();
+    // 每次打开收起解锁码输入区
+    $('unlockInputArea').style.display = 'none';
+    $('showCodeEntryBtn').style.display = '';
+    $('unlockCodeInput').value = '';
+  }
+}
+$('unlockClose').addEventListener('click', () => $('unlockModal').classList.remove('show'));
+$('unlockModal').addEventListener('click', e => {
+  if(e.target === $('unlockModal')) $('unlockModal').classList.remove('show');
+});
+
+// 一键复制微信号
+$('copyWechatBtn').addEventListener('click', async () => {
+  if(!CONTACT_WECHAT) return;
+  try{
+    await navigator.clipboard.writeText(CONTACT_WECHAT);
+    toast('微信号已复制，打开微信 → 添加朋友 → 粘贴', 'success');
+  }catch(e){
+    // 老浏览器 / 非 https 兜底：手动选中微信号
+    const wEl = $('wechatId');
+    const range = document.createRange();
+    range.selectNodeContents(wEl);
+    const sel = window.getSelection();
+    sel.removeAllRanges();
+    sel.addRange(range);
+    toast('请长按或手动选择微信号复制', 'success');
+  }
+});
+
+// 一键复制设备码
+$('copyMidBtn').addEventListener('click', async () => {
+  const mid = getMachineId();
+  try{
+    await navigator.clipboard.writeText(mid);
+    toast('设备码已复制', 'success');
+  }catch(e){
+    const el = $('machineIdText');
+    const range = document.createRange();
+    range.selectNodeContents(el);
+    const sel = window.getSelection();
+    sel.removeAllRanges();
+    sel.addRange(range);
+    toast('请长按或手动选择设备码复制', 'success');
+  }
+});
+
+// 展开/收起"已有解锁码"输入区
+$('showCodeEntryBtn').addEventListener('click', () => {
+  const area = $('unlockInputArea');
+  const show = area.style.display === 'none';
+  area.style.display = show ? '' : 'none';
+  if(show) $('unlockCodeInput').focus();
+});
+
+$('verifyCodeBtn').addEventListener('click', async () => {
+  const code = $('unlockCodeInput').value.trim().toUpperCase();
+  if(!code){ toast('请输入解锁码', 'error'); return; }
+  const expected = await generateExpectedCode(getMachineId());
+  if(code === expected){
+    localStorage.setItem(UNLOCK_KEY, expected);
+    state.unlocked = true;
+    state.quota.max = PRO_MAX;
+    refreshUnlockUI();
+    $('unlockModal').classList.remove('show');
+    toast('永久解锁成功！', 'success');
+  } else {
+    toast('解锁码无效', 'error');
+  }
+});
+
+/* ============ 初始化 ============ */
+initTheme();
+getMachineId();
+// 异步读取本地解锁状态并刷新配额 UI（内部已含 checkUnlock）
+refreshUnlockUI();
+updateFeatureUI();
+renderFiles();
+
+// 键盘支持：Enter 在解锁码框触发验证
+$('unlockCodeInput').addEventListener('keydown', e => {
+  if(e.key === 'Enter') $('verifyCodeBtn').click();
+});
+
+// 注册 Service Worker（仅 https / localhost）
+if('serviceWorker' in navigator && location.protocol.startsWith('http')){
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('sw.js').catch(()=>{});
+  });
+}
+
+})();
+</script>
+</body>
+</html>

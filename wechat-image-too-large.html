@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>图片太大微信发不出去怎么办 - 不被压糊的发图方法</title>
+<meta name="description" content="微信发图片提示文件过大、发出去被压模糊怎么办？讲清微信原图限制和朋友圈压缩机制，教你发图前自己先压到合适大小，画质自己掌控，手机免费处理不上传。">
+<meta name="keywords" content="图片太大微信发不出去,微信发图被压缩,微信原图限制,朋友圈图片模糊,发照片压缩">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://image-tools-nine-pi.vercel.app/wechat-image-too-large.html">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2316a34a'/%3E%3C/svg%3E">
+<link rel="manifest" href="manifest.json">
+<style>
+:root{--bg:#f6f7f9;--card:#fff;--text:#1c1e21;--t2:#5b6169;--t3:#8a919b;--bd:#e3e6ea;--ac:#16a34a;--acs:rgba(22,163,74,.1)}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--text);line-height:1.75}
+.wrap{max-width:760px;margin:0 auto;padding:28px 16px 60px}
+.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:28px}
+.top a{color:var(--ac);text-decoration:none;font-size:14px;font-weight:600}
+h1{font-size:25px;line-height:1.4;margin-bottom:10px}
+.sub{color:var(--t2);font-size:15px;margin-bottom:24px}
+.badge{display:inline-block;background:var(--acs);color:var(--ac);border-radius:999px;padding:4px 14px;font-size:13px;font-weight:600;margin-bottom:16px}
+.cta{display:block;text-align:center;background:var(--ac);color:#fff;text-decoration:none;border-radius:12px;padding:15px;font-size:17px;font-weight:700;margin:26px 0 8px}
+.cta:hover{filter:brightness(1.06)}
+.note{text-align:center;color:var(--t3);font-size:12.5px;margin-bottom:34px}
+.sec{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:22px;margin-bottom:18px}
+.sec h2{font-size:17px;margin-bottom:12px}
+.sec p{color:var(--t2);font-size:14.5px;margin-bottom:10px}
+.sec ul,.sec ol{padding-left:22px;color:var(--t2);font-size:14.5px}
+.sec li{margin-bottom:8px}
+table{width:100%;border-collapse:collapse;font-size:13.5px;margin:6px 0}
+th,td{border:1px solid var(--bd);padding:8px 10px;text-align:left}
+th{background:var(--bg);font-weight:600}
+.faq h3{font-size:14.5px;margin:14px 0 6px}
+.faq p{color:var(--t2);font-size:13.5px;margin-bottom:0}
+.tip{background:var(--acs);border:1px solid color-mix(in srgb,var(--ac) 30%,transparent);border-radius:10px;padding:12px 14px;font-size:13.5px;color:var(--ac);margin:12px 0}
+footer{color:var(--t3);font-size:12px;text-align:center;margin-top:30px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top"><span style="font-weight:700">图片处理工具</span><a href="/">← 返回完整工具</a></div>
+
+  <span class="badge">微信发图过大 / 画质被压糊专用</span>
+  <h1>图片太大微信发不出去？教你掌控画质不被压糊</h1>
+  <p class="sub">手机拍的照片一张好几 MB，发给客户被微信二次压缩到满屏马赛克。与其跟微信的压缩算法赌运气，不如发之前自己先压到合适大小——画质你说了算，对方收到也清楚。</p>
+
+  <a class="cta" href="/">打开工具，自己先压一遍 →</a>
+  <p class="note">单次最多处理 10 张 · 无需注册 · 手机可用</p>
+
+  <div class="sec">
+    <h2>微信到底对图片做了什么</h2>
+    <ul>
+      <li><strong>聊天发图有大小限制</strong>：普通照片走的是压缩通道，手机原图动辄 3-8MB，微信会自动缩到较小尺寸和体积。想发原图，需要在发送预览页勾选"原图"，但原图有大小上限（通常在几十 MB 以内，超限会提示发送失败）。</li>
+      <li><strong>朋友圈二次压缩更狠</strong>：为了加载速度，朋友圈会把图片压到较宽的边长并降低质量。天空渐变、文字、建筑边缘最容易出现色块和毛边。</li>
+      <li><strong>群聊多次转发 = 反复压缩</strong>：一张图被转几个群，每经一手压一次，最后糊到没法看。</li>
+    </ul>
+    <div class="tip">核心思路：把"微信替你压"改成"你自己先压好"。自己压能控制质量参数，压完再发，微信即使再压一次也在可接受范围内；体积小还发得快、不卡。</div>
+  </div>
+
+  <div class="sec">
+    <h2>不同用途的推荐参数</h2>
+    <table>
+      <tr><th>用途</th><th>建议宽度</th><th>建议质量</th><th>格式</th></tr>
+      <tr><td>微信 / QQ 聊天日常发图</td><td>1080 px</td><td>80%</td><td>JPEG</td></tr>
+      <tr><td>朋友圈（想尽量清晰）</td><td>1440 px</td><td>85%</td><td>JPEG</td></tr>
+      <tr><td>发客户 / 打印参考</td><td>保持原宽</td><td>90% + 勾"原图"</td><td>JPEG</td></tr>
+      <tr><td>截图 / 文字图片</td><td>保持原宽</td><td>85%</td><td>PNG 更清晰</td></tr>
+      <tr><td>批量发商品图到群</td><td>800 px</td><td>75%</td><td>WebP 最小</td></tr>
+    </table>
+  </div>
+
+  <div class="sec">
+    <h2>手机上的具体操作（30 秒）</h2>
+    <ol>
+      <li>用浏览器打开本工具（可"添加到主屏幕"，下次像 App 一样点开）。</li>
+      <li>勾选"缩放尺寸"填宽度（高度自动按比例，不会拉长变形），再勾选"压缩图片"选质量。</li>
+      <li>处理完保存到手机相册，回到微信直接发送，体积通常能明显变小，发送也更快。</li>
+    </ol>
+    <p>全程本地处理，照片不离开手机，聊天记录里那些私人照片不用担心上传到陌生网站。</p>
+  </div>
+
+  <div class="sec faq">
+    <h2>常见问题</h2>
+    <h3>对方说点开还是不清晰？</h3>
+    <p>让对方在聊天里点"查看原图"。微信默认显示的是压缩预览，原图按钮下载的才是你发送的完整版本。</p>
+    <h3>几十张商品图要一个个压吗？</h3>
+    <p>免费版每会话可批量处理 10 张；解锁后单次最多 50 张，同一组尺寸和质量参数自动套用到所有图片。</p>
+    <h3>压完之后还能恢复原图吗？</h3>
+    <p>不能，压缩是不可逆的。建议保留好原始照片，只把压缩版发出去，本工具不会改动你相册里的原图。</p>
+  </div>
+
+  <a class="cta" href="/">立即处理要发的照片 →</a>
+
+  <footer>© 2026 图片处理工具 · <a href="/compress.html" style="color:inherit">图片压缩</a> · <a href="/resize.html" style="color:inherit">修改尺寸</a> · <a href="/sitemap.xml" style="color:inherit">网站地图</a></footer>
+</div>
+</body>
+</html>

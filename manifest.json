@@ -1,0 +1,53 @@
+{
+  "name": "图片处理工具 - 本地处理不上传",
+  "short_name": "图片处理",
+  "description": "免费在线图片压缩、缩放、格式转换、加水印。所有处理在浏览器本地完成，图片不上传服务器，保护隐私。支持批量处理，手机端离线可用。",
+  "lang": "zh-CN",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#f6f7f9",
+  "theme_color": "#16a34a",
+  "categories": ["utilities", "productivity", "multimedia"],
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "压缩图片",
+      "short_name": "压缩",
+      "description": "降低图片体积",
+      "url": "./?action=compress"
+    },
+    {
+      "name": "格式转换",
+      "short_name": "转换",
+      "description": "JPEG/PNG/WebP 互转",
+      "url": "./?action=convert"
+    }
+  ]
+}
