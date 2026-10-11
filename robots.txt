@@ -1,4 +1,4 @@
-User-agent: *
+﻿User-agent: *
 Allow: /
 
-Sitemap: https://image-tools-nine-pi.vercel.app/sitemap.xml
+Sitemap: https://hwu91225-lgtm.github.io/image-tools/sitemap.xml
